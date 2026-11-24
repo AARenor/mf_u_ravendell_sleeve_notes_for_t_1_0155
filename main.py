@@ -11,7 +11,7 @@ Three frogs play sax, bass and drums in the back of a closed florist's. The bass
 
 def main() -> None:
     assert 1 <= len(TEXT) <= 280, len(TEXT)
-    output_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
+    output_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR") or os.environ.get("OUTPUT_DIR", "/output"))
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "entry.txt").write_bytes(TEXT.encode("utf-8"))
     print(len(TEXT), file=sys.stderr)
